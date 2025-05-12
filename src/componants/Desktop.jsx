@@ -1,13 +1,14 @@
 import ButtonGrid from "./ButtonGrid"
 
-export default function Desktop(){
+export default function Desktop({dispatch}){
     return(
         <div className="desktop-container">
         <div className="rectangle-base">
           <div className="rectangle-top-depth"></div>
           <div className="rectangle-screen">
-            <ButtonGrid/>
+            <ButtonGrid dispatch={dispatch}/>
            </div>
+          
           <div className="rectangle-dvd-under"></div>
           <div className="rectangle-dvd-over"></div>
           <div className="button-dark-mode"></div>
