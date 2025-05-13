@@ -3,7 +3,7 @@ export function windowsReducer(openWindows, action){
     switch(action.type){
         //if window already open dispatch select call <-----
         case "open" : {
-            const maxZ = openWindows.length ? Math.max(...openWindows.map((w)=>w.z || 0 )) : 0
+            const maxZ = openWindows.length ? Math.max(...openWindows.map((w)=>w.z || 1 )) : 1
             return [...openWindows, {id: action.id, z: maxZ + 1}]
         }
         case "close" : {
