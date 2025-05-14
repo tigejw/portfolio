@@ -142,12 +142,16 @@ body {
 
 /*windows*/
 
+.window-container{
+    
+}
+
 .window{
     position: fixed;
     background-color: white;
     border: 2px solid #ccc;
     border-radius: 8px;
-    width: clamp(250px, 60%, 600px);
+    width: clamp(250px, 60%, 600px)
 }
 
 .window-header{

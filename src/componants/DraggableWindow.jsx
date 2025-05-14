@@ -1,20 +1,29 @@
-import { useDraggable } from "use-draggable";
+import { useDraggable } from "@dnd-kit/core";
+export function DraggableWindow({ id, title, html, position, z, dispatch }) {
+  //add attached html to windows
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({ id });
 
-export function DraggableWindow({ id, title, html, z, dispatch }) {
- //add attached html to windows
-  const {targetRef, handleRef} = useDraggable({controlStyle: true})
+  const style = {
+    position: "absolute",
+    zIndex: z,
+    transform: `translate3d(${position.x + (transform?.x || 0)}px, ${
+      position.y + (transform?.y || 0)
+    }px, 0)`,
+  };
 
   return (
     <div
       className="window"
       key={id}
-      ref={targetRef}
-      style={{ zIndex: z, position: "absolute" }}
+      ref={setNodeRef}
+      style={style}
       onMouseDown={() => {
         dispatch({ type: "select", id: id });
       }}
+      {...listeners}
+      {...attributes}
     >
-      <div className="window-header" ref={handleRef}>
+      <div className="window-header">
         <span className="window-title">{title}</span>
         <button
           className="window-close-button"
