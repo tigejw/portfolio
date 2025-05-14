@@ -4,6 +4,7 @@ import { useReducer } from "react"
 import {DndContext} from "@dnd-kit/core"
 import { windowsReducer, initialWindows } from "./assets/windowsReducer";
 function App() {
+  
   const [openWindows, dispatch] = useReducer(windowsReducer, initialWindows)
   
   function handleDragEnd({delta, active}) {
@@ -13,7 +14,7 @@ function App() {
       delta,
     });
   }
-  
+
   return (
     <>
    <DndContext onDragEnd={handleDragEnd}>

@@ -20,14 +20,14 @@ export function DraggableWindow({ id, title, html, position, z, dispatch }) {
       onMouseDown={() => {
         dispatch({ type: "select", id: id });
       }}
-      {...listeners}
-      {...attributes}
     >
-      <div className="window-header">
+      <div className="window-header" {...listeners} {...attributes}>
         <span className="window-title">{title}</span>
         <button
           className="window-close-button"
           onClick={() => {
+            //this isnt working, because select is activating on mousedown.......
+            console.log("closing", id)
             dispatch({ type: "close", id: id });
           }}
         >

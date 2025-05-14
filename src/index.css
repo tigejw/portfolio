@@ -160,6 +160,7 @@ body {
   padding-left: 3px;
   align-items: center;
   border-bottom: 2px solid #ccc;
+  cursor: grab
 }
 
 .window-title{ 
@@ -172,7 +173,8 @@ body {
     border: none;
     font-size: 1.25rem;
     cursor: pointer;
-    padding: 0 2%;
+    /*for testing*/
+    padding: 10px;
     border-radius: 4px;
 }
 
