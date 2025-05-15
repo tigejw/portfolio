@@ -164,6 +164,7 @@ body {
 }
 
 .window-title{ 
+    flex: 1;
     padding: 3px;
     font-weight: bold;
 }
@@ -173,8 +174,6 @@ body {
     border: none;
     font-size: 1.25rem;
     cursor: pointer;
-    /*for testing*/
-    padding: 10px;
     border-radius: 4px;
 }
 

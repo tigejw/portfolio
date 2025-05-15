@@ -1,7 +1,16 @@
 import { useDraggable } from "@dnd-kit/core";
-export function DraggableWindow({ id, title, html, position, z, dispatch }) {
+export function DraggableWindow({
+  id,
+  title,
+  html,
+  maxZ,
+  position,
+  z,
+  dispatch,
+}) {
   //add attached html to windows
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({ id });
+  const { attributes, listeners, setNodeRef, transform } =
+    useDraggable({ id });
 
   const style = {
     position: "absolute",
@@ -18,16 +27,18 @@ export function DraggableWindow({ id, title, html, position, z, dispatch }) {
       ref={setNodeRef}
       style={style}
       onMouseDown={() => {
-        dispatch({ type: "select", id: id });
+        if (z < maxZ) {
+          dispatch({ type: "select", id: id });
+        }
       }}
     >
-      <div className="window-header" {...listeners} {...attributes}>
-        <span className="window-title">{title}</span>
+      <div className="window-header">
+        <span className="window-title" {...listeners} {...attributes}>
+          {title}
+        </span>
         <button
           className="window-close-button"
-          onClick={() => {
-            //this isnt working, because select is activating on mousedown.......
-            console.log("closing", id)
+          onClick={(e) => {
             dispatch({ type: "close", id: id });
           }}
         >
