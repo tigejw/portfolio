@@ -42,11 +42,11 @@ export function DraggableWindow({
             dispatch({ type: "close", id: id });
           }}
         >
-          ×
+         [x]
         </button>
       </div>
       <div className="window-body">
-        <p>Filler text!!!:D update to add custom html here !</p>
+        {html}
       </div>
     </div>
   );
