@@ -1,25 +1,18 @@
 import Desktop from "./componants/Desktop";
 import { Windows } from "./componants/Windows"
-import { useReducer } from "react"
-import {DndContext} from "@dnd-kit/core"
+
+import { useReducer } from "react";
 import { windowsReducer, initialWindows } from "./assets/windowsReducer";
 function App() {
   
-  const [openWindows, dispatch] = useReducer(windowsReducer, initialWindows)
-  
-  function handleDragEnd({delta, active}) {
-    dispatch({
-      type: "move",
-      id: active.id,
-      delta,
-    });
-  }
+ 
+  const [openWindows, dispatch] = useReducer(windowsReducer, initialWindows);
 
   return (
     <>
-   <DndContext onDragEnd={handleDragEnd}>
+   
      <Windows openWindows={openWindows} dispatch={dispatch}/>
-   </DndContext>
+
      <Desktop dispatch={dispatch}/>
   
   
