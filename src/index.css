@@ -186,3 +186,13 @@ body {
 .window-body{
     border: 2px solid #ccc;
 }
+
+/*songselection*/
+
+.song-selection-container{
+
+}
+
+.song-selection-list{}
+
+.song-selection-song{}
