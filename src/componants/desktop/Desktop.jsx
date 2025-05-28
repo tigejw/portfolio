@@ -2,13 +2,13 @@ import ButtonGrid from "./ButtonGrid";
 import { useAudio } from "../audio/useAudio";
 import { useState } from "react";
 import SongSelection from "../windows/SongSelection";
-export default function Desktop({ dispatch }) {
+export default function Desktop({ dispatch , setShowSongSelection, showSongSelection}) {
   const { toggleMute } = useAudio();
 
-  const [showSongSelection, setShowSongSelection] = useState(false)
-
   const handleEject = () => {
+    console.log("click")
     setShowSongSelection((showSongSelection => !showSongSelection))
+    console.log("show song selectiong in desktop", showSongSelection)
   }
 
   return (
@@ -16,7 +16,7 @@ export default function Desktop({ dispatch }) {
       <div className="rectangle-base">
         <div className="rectangle-top-depth"></div>
         <div className="rectangle-screen">
-          {showSongSelection ? <SongSelection/> : <ButtonGrid dispatch={dispatch} />}
+          <ButtonGrid dispatch={dispatch} />
         </div>
 
         <div className="rectangle-dvd-under"></div>

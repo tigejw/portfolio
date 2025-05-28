@@ -1,7 +1,7 @@
 import { useAudio } from "../audio/useAudio";
 import { songs } from "../audio/songs";
 export default function SongSelection() {
-  const { playSong } = useAudio();
+  const { playSong, currentSong } = useAudio();
   return (
     <div className="song-selection-container">
       <h2> select a song! </h2>
@@ -9,7 +9,7 @@ export default function SongSelection() {
         {songs.map((song) => {
           return (<li key={song.id} className="song-selection-song">
             <p>{song.title}</p>
-            <button onClick={()=>{playSong(song.id)}}>PLAY</button>
+            <button className="song-selection-button" onClick={()=>{playSong(song.id)}}>{song.id === currentSong.id ? "playing" : "play"}</button>
           </li>);
             //what happens when selected song is already playing?
         })}

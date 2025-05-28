@@ -41,6 +41,7 @@ export function AudioProvider({ children }) {
   };
 
   const value = {
+    currentSong,
     isMuted,
     toggleMute,
     playSong,
